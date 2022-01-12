@@ -1,0 +1,265 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://PlayerController.gd" type="Script" id=1]
+[ext_resource path="res://player.png" type="Texture" id=2]
+[ext_resource path="res://EnemiesSpawner.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 6 )
+
+[sub_resource type="Theme" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="enemySpawnTimer" type="Timer" parent="."]
+
+[node name="backgroundColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.192157, 0.192157, 0.192157, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="display" type="ColorRect" parent="."]
+anchor_left = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.337255, 0.337255, 0.337255, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="vLayout" type="VBoxContainer" parent="display"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="display/vLayout"]
+margin_right = 100.0
+margin_bottom = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLbl" type="Label" parent="display/vLayout"]
+margin_top = 8.0
+margin_right = 100.0
+margin_bottom = 22.0
+text = "SCORE:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="display/vLayout"]
+margin_top = 26.0
+margin_right = 100.0
+margin_bottom = 40.0
+text = "000000"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="display/vLayout"]
+margin_top = 44.0
+margin_right = 100.0
+margin_bottom = 48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="display/vLayout"]
+margin_top = 52.0
+margin_right = 100.0
+margin_bottom = 66.0
+text = "CONTROLS :"
+align = 1
+
+[node name="Label2" type="Label" parent="display/vLayout"]
+margin_top = 70.0
+margin_right = 100.0
+margin_bottom = 220.0
+text = "PRESS <SPACE>
+TO MOVE TO 
+THE CENTER
+PRESS <SPACE>
+AGAIN TO 
+MOVE AWAY
+
+AVOID THE 
+WALLS!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator3" type="HSeparator" parent="display/vLayout"]
+margin_top = 224.0
+margin_right = 100.0
+margin_bottom = 228.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spacer line 1-2" type="ColorRect" parent="."]
+anchor_left = 0.249
+anchor_right = 0.251
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -261, -22 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="spacer line 2-3" type="ColorRect" parent="."]
+anchor_left = 0.499
+anchor_right = 0.501
+anchor_bottom = 1.0
+margin_left = -2.39998
+margin_right = -2.39998
+rect_pivot_offset = Vector2( -261, -22 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 227.0
+margin_bottom = 227.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AreaRightP" type="Area2D" parent="Player"]
+position = Vector2( 250, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AreaRightP"]
+shape = SubResource( 1 )
+
+[node name="RightPlayer" type="Sprite" parent="Player/AreaRightP/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="AreaLeftP" type="Area2D" parent="Player"]
+position = Vector2( 50, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AreaLeftP"]
+shape = SubResource( 1 )
+
+[node name="LeftPlayer" type="Sprite" parent="Player/AreaLeftP/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="StarterTimer" type="Timer" parent="."]
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackBackground" type="ColorRect" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.694118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color( 0.337255, 0.337255, 0.337255, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="titreLbl" type="Label" parent="UI/ColorRect/VBoxContainer"]
+margin_top = 4.0
+margin_right = 100.0
+margin_bottom = 18.0
+text = "GAME START"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelScore" type="Label" parent="UI/ColorRect/VBoxContainer"]
+margin_top = 22.0
+margin_right = 100.0
+margin_bottom = 36.0
+text = "SCORE :"
+align = 1
+
+[node name="scoreLbl" type="Label" parent="UI/ColorRect/VBoxContainer"]
+margin_top = 40.0
+margin_right = 100.0
+margin_bottom = 54.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Label" parent="UI/ColorRect/VBoxContainer"]
+margin_top = 58.0
+margin_right = 100.0
+margin_bottom = 72.0
+text = "CONTINUE?"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ColorRect/VBoxContainer"]
+margin_top = 76.0
+margin_right = 100.0
+margin_bottom = 96.0
+alignment = 1
+
+[node name="yesButton" type="Button" parent="UI/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 15.0
+margin_right = 48.0
+margin_bottom = 20.0
+text = "YES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="noButton" type="Button" parent="UI/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 52.0
+margin_right = 85.0
+margin_bottom = 20.0
+text = "NO"
+
+[connection signal="timeout" from="enemySpawnTimer" to="." method="_on_enemySpawnTimer_timeout"]
+[connection signal="area_entered" from="Player/AreaRightP" to="Player" method="_on_AreaRightP_area_entered"]
+[connection signal="area_entered" from="Player/AreaLeftP" to="Player" method="_on_AreaLeftP_area_entered"]
+[connection signal="pressed" from="UI/ColorRect/VBoxContainer/HBoxContainer/yesButton" to="Player" method="_on_yesButton_pressed"]
+[connection signal="pressed" from="UI/ColorRect/VBoxContainer/HBoxContainer/noButton" to="Player" method="_on_noButton_pressed"]

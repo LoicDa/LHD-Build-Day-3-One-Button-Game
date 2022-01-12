@@ -1,0 +1,5 @@
+Player control 2 points
+Pressing button solely pulls points toward the middle
+Pressing again push toward the border of the screen
+Etc.
+Incoming walls must be avoided
